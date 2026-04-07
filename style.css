@@ -1,0 +1,169 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* 🌈 Animated background */
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #fdfcfb, #e2d1c3, #f8e8dc, #fdfcfb);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    z-index: -2;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ✨ Sparkle effect */
+.bg::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.6) 2px, transparent 2px);
+    background-size: 60px 60px;
+    animation: sparkle 20s linear infinite;
+}
+
+@keyframes sparkle {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* 💎 Card */
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+
+    background: rgba(255,255,255,0.9);
+
+    /* Safari support */
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+
+    padding: 25px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    animation: fadeIn 1.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* 💍 Title */
+.title {
+    color: #c8a97e;
+}
+
+.heart {
+    color: #e8b4b8;
+    display: inline-block;
+    animation: heartbeat 1s infinite;
+}
+.heart {
+    text-shadow: 0 0 10px #e8b4b8;
+}
+
+/* ❤️ Թփրտալու ավելի բնական էֆեկտ */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.15);
+    }
+    40% {
+        transform: scale(0.95);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.guest {
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.text {
+    font-size: 14px;
+    color: #555;
+}
+
+.date {
+    margin: 10px 0;
+}
+
+.countdown {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c8a97e;
+}
+
+/* 🔥 Button */
+.btn {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #c8a97e, #e2c9a0);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* ✨ Hidden details (correct animation) */
+.details {
+    margin-top: 15px;
+    font-size: 14px;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    transition: all 0.5s ease;
+}
+
+.details.show {
+    max-height: 200px;
+    opacity: 1;
+}
+
+/* Footer */
+.footer {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #888;
+}
